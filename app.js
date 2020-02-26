@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const router = require('./routers/router_main.js');
+const router_api = require('./routers/router_api.js');
+
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 dotenv.config();
@@ -22,7 +24,8 @@ mongoose.connection.on('error',err =>{
 app.use(morgan('dev'))
 app.use(bodyParser.json());
 
-app.use(router);
+app.use('/',router);
+app.use('/api',router_api);
 
 
 app.listen(port, () => console.log(`Connect to port ${port}`))

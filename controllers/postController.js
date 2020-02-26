@@ -1,6 +1,8 @@
 const Post = require('../models/MY_model');
+var path = require('path');
 exports.index = function(req, res) {
-    res.send('NOT IMPLEMENTED: Site Home Page');
+
+    res.sendFile(path.resolve('views/index.html'));
 };
 
 
@@ -18,3 +20,5 @@ exports.createPost = (req,res) =>{
 		})
 	});
 }
+
+
