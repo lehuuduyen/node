@@ -12,5 +12,5 @@ router.get('/get_json',function(req,res){
 		];
 	res.send(json)
 })
-
+router.post('/post',postController.createPost);
 module.exports = router
